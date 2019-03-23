@@ -52,12 +52,13 @@ class Dog
     self.new(attributes)
   end
 
-  def self.find_or_create_by(attributes)
+  def self.find_or_create_by(:name, :breed)
     sql = <<-SQL
     SELECT *
     FROM dogs
     WHERE dogs.name = ?
       SQL
+    binding.pry
 
     if DB[:conn].execute(sql, attributes[0]) == nil
       self.create(attributes)
