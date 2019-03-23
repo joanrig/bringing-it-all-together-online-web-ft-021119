@@ -58,7 +58,6 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-    binding.pry
     sql = <<-SQL
     SELECT * FROM dogs
     WHERE name = ? AND breed = ?
@@ -70,7 +69,6 @@ class Dog
     else
       new_dog = self.create({:name => name, :breed => breed})
     end
-
     new_dog
   end
 
