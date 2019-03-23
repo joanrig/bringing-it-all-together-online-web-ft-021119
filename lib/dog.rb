@@ -56,6 +56,7 @@ class Dog
     if !self.find_by_id(id)
       self.create.send("id=", id)
     end
+  end
 
 
 end
