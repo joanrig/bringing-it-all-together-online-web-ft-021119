@@ -58,7 +58,6 @@ class Dog
     FROM dogs
     WHERE dogs.name = ?
       SQL
-    binding.pry
 
     if DB[:conn].execute(sql, attributes[0]) == nil
       self.create(attributes)
