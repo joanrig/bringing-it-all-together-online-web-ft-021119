@@ -56,11 +56,11 @@ class Dog
     sql = <<-SQL
     SELECT *
     FROM dogs
-    WHERE dogs.name = ?
+    WHERE name = ? AND breed = ?
       SQL
 
-    if DB[:conn].execute(sql, attributes[0]) == nil
-      self.create(attributes)
+    if DB[:conn].execute(sql, :name, :breed) == nil
+      self.create(:name, :breed)
     end
 
   end
