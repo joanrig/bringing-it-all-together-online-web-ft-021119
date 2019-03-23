@@ -61,7 +61,7 @@ class Dog
       SQL
 
     if DB[:conn].execute(sql, attributes[0]) == nil
-      self.create.send("id=", id)
+      self.create(attributes)
     end
 
   end
