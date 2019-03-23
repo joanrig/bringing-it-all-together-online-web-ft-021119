@@ -55,12 +55,12 @@ class Dog
   def self.find_or_create_by(attributes)
     binding.pry
     sql = <<-SQL
-    SELECT
+    SELECT *
     FROM dogs
-    WHERE dogs.id = ?
+    WHERE dogs.name = ?
       SQL
 
-    if DB[:conn].execute(sql) == nil
+    if DB[:conn].execute(sql, attributes[0]) == nil
       self.create.send("id=", id)
     end
 
