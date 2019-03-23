@@ -88,7 +88,7 @@ class Dog
 
     sql = <<-SQL
     UPDATE dogs
-    SET
+    SET name 
     WHERE dogs.name = ?
       SQL
 
