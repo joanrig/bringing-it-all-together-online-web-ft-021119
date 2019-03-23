@@ -41,11 +41,11 @@ class Dog
     sql = <<-SQL
     SELECT *
     FROM dogs
-    WHERE dogs.id = id
+    WHERE dogs.id = ?
       SQL
 
     attributes = {}
-    values = DB[:conn].execute(sql)[0]
+    values = DB[:conn].execute(sql,id)[0]
     attributes[:id] = values[0]
     attributes[:name] = values[1]
     attributes[:breed] = values[2]
