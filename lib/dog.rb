@@ -84,8 +84,8 @@ class Dog
     self.new_from_db(row)
   end
 
-  def update(arg)
-    binding.pry
+  def update
+
     sql = <<-SQL
     UPDATE dogs
     SET
@@ -93,6 +93,7 @@ class Dog
       SQL
 
     row = DB[:conn].execute(sql)
+        binding.pry
   end
 
 
