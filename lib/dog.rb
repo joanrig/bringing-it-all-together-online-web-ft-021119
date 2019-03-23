@@ -53,7 +53,7 @@ class Dog
   end
 
   def self.find_or_create_by(id)
-    if self.find_by_id(id) == nil
+    if self.find_by_id(id).tap == nil
       self.create.send("id=", id)
     end
   end
