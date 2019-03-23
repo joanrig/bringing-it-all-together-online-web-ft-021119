@@ -62,7 +62,7 @@ class Dog
     if dog
       self.find_by_id(dog.id)
     else
-      self.create(name:, breed:)
+      self.create(name, breed)
     end
 
 
