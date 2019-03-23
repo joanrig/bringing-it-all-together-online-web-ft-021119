@@ -60,6 +60,7 @@ class Dog
       SQL
 
       DB[:conn].execute(sql,id)
+      self.save
     end
   end
 
