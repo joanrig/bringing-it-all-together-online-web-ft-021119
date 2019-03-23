@@ -59,12 +59,10 @@ class Dog
       SQL
     dog = DB[:conn].execute(sql, name, breed).first
 
-    if !dog
-      sql = <<-SQL
-      INSERT INTO dogs (name, breed)
-      VALUES = (?, ?)
-        SQL
-      dog = DB[:conn].execute(sql, name, breed)
+    if dog
+      self.find_by_id(dog.id)
+    else
+      self.create(name:, breed:)
     end
 
 
