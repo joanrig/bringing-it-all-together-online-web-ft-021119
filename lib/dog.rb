@@ -52,7 +52,7 @@ class Dog
     self.new(attributes)
   end
 
-  def self.find_or_create_by
+  def self.find_or_create_by(id)
     self.create.send("id=", id) if !self.find_by_id(id)
   end
 
