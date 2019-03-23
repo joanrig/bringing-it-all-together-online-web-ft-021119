@@ -53,8 +53,12 @@ class Dog
   end
 
   def self.find_or_create_by(id)
-    if self.find_by_id(id).tap == nil
-      self.create.send("id=", id)
+    self.all.each do |dog|
+      if dog.id == id
+        dog
+      else
+        self.find_by_id(id)
+      end        
     end
   end
 
