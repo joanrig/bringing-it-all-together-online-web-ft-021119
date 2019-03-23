@@ -53,7 +53,6 @@ class Dog
   end
 
   def self.find_or_create_by(attributes)
-    binding.pry
     sql = <<-SQL
     SELECT *
     FROM dogs
