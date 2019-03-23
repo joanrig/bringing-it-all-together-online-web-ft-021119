@@ -53,7 +53,7 @@ class Dog
   end
 
   def self.find_or_create_by
-    self.find_by_id(id) ||= self.create.send("id=", id)
+    self.find_by_id(id) ||=  self.create.send("id=", id)
   end
 
 
