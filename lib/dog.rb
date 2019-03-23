@@ -57,9 +57,17 @@ class Dog
     SELECT * FROM dogs
     WHERE name = ? AND breed = ?
       SQL
-
     dog = DB[:conn].execute(sql, name, breed).first
-    dog ||= Dog.new(name:, breed:)
+
+    if !dog
+      sql = <<-SQL
+      INSERT INTO dogs (name, breed)
+      VALUES = (?, ?)
+        SQL
+      dog = DB[:conn].execute(sql, name, breed)
+    end
+
+
 
   end
 
