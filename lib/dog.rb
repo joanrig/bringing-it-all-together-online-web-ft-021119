@@ -52,7 +52,8 @@ class Dog
     self.new(attributes)
   end
 
-  def self.find_or_create_by(name)
+  def self.find_or_create_by(id)
+    self.find_by_id ||= self.new.send("id=", id)
   end
 
 
