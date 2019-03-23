@@ -88,8 +88,8 @@ class Dog
 
     sql = <<-SQL
     UPDATE dogs
-    SET name 
-    WHERE dogs.name = ?
+    SET name = ?, breed = ?
+    WHERE dogs.id 
       SQL
 
     row = DB[:conn].execute(sql)
