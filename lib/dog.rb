@@ -37,18 +37,21 @@ class Dog
     self.new(attributes).save
   end
 
+  def self.new_from_db(row)
+    attributes = {
+      :id => row[0],
+      :name => row[1],
+      :breed => row[2]
+    }
+    self.new(attributes)
+  end
+
   def self.find_by_id(id)
     sql = <<-SQL
     SELECT *
     FROM dogs
     WHERE dogs.id = ?
       SQL
-
-    attributes = {}
-    values = DB[:conn].execute(sql,id)[0]
-    attributes[:id] = values[0]
-    attributes[:name] = values[1]
-    attributes[:breed] = values[2]
     self.new(attributes)
   end
 
@@ -57,10 +60,10 @@ class Dog
     SELECT * FROM dogs
     WHERE name = ? AND breed = ?
       SQL
-    dog = DB[:conn].execute(sql, name, breed).first
+    row = DB[:conn].execute(sql, name, breed).first
 
     if dog
-      self.find_by_id(dog.first[0])
+      self.new_from_db.row
     else
       self.create(name, breed)
     end
