@@ -52,14 +52,18 @@ class Dog
     self.new(attributes)
   end
 
-  def self.find_or_create_by(id)
-    self.all.each do |dog|
-      if dog.id == id
-        dog
-      else
-        self.find_by_id(id)
-      end        
+  def self.find_or_create_by(attributes)
+    binding.pry
+    sql = <<-SQL
+    SELECT
+    FROM dogs
+    WHERE dogs.id = ?
+      SQL
+
+    if DB[:conn].execute(sql) == nil
+      self.create.send("id=", id)
     end
+
   end
 
 
