@@ -53,15 +53,7 @@ class Dog
   end
 
   def self.find_or_create_by
-    if !self.find_by_id(id)
-      sql = <<-SQL
-      INSERT INTO dogs (id)
-      VALUES (?)
-      SQL
-
-      DB[:conn].execute(sql,id)
-      self.save
-    end
+    self.find_by_id(id) ||= self.create.send("id=", id)
   end
 
 
