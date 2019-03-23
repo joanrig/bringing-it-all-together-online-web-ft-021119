@@ -88,7 +88,6 @@ class Dog
     end
     new_dog
   end
-end
 
 
 end
