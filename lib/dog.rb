@@ -60,7 +60,7 @@ class Dog
   #
   #   if !DB[:conn].execute(sql)
   #     self.new.send("#{name}=", name)
-  #   end
+  end
 
 
 end
