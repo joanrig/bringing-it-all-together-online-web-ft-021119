@@ -52,8 +52,6 @@ class Dog
     self.new(attributes)
   end
 
-  self.find_or_create_by_name
-  end
 
 
 end
