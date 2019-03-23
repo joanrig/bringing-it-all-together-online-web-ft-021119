@@ -52,15 +52,7 @@ class Dog
     self.new(attributes)
   end
 
-  self.find_or_create_by_name(name)
-  #   sql = <<-SQL
-  #     SELECT * FROM dogs
-  #     WHERE dogs.name = name;
-  #     SQL
-  #
-  #   if !DB[:conn].execute(sql)
-  #     self.new.send("#{name}=", name)
-  end
+
 
 
 end
