@@ -61,6 +61,7 @@ class Dog
     dog = DB[:conn].execute(sql, name, breed).first
     if !dog
       Dog.new(name:, breed:)
+    end
 
   end
 
