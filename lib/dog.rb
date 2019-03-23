@@ -60,7 +60,7 @@ class Dog
     dog = DB[:conn].execute(sql, name, breed).first
 
     if dog
-      self.find_by_id(dog.id)
+      self.find_by_id(dog.first[0])
     else
       self.create(name, breed)
     end
