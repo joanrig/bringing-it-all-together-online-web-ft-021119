@@ -63,9 +63,9 @@ class Dog
     row = DB[:conn].execute(sql, name, breed).first
 
     if dog
-      self.new_from_db(row)
+      new_dog = self.new_from_db(row)
     else
-      self.create(name, breed)
+      new_dog = self.create({name: , breed})
     end
 
 
