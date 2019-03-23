@@ -84,10 +84,11 @@ class Dog
     self.new_from_db(row)
   end
 
-  def update
+  def update(arg)
+    binding.pry
     sql = <<-SQL
-    UPDATE dogs 
-    FROM dogs
+    UPDATE dogs
+    SET
     WHERE dogs.name = ?
       SQL
 
