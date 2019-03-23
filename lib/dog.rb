@@ -84,6 +84,14 @@ class Dog
     self.new_from_db(row)
   end
 
+  def update
+    sql = <<-SQL
+    UPDATE dogs 
+    FROM dogs
+    WHERE dogs.name = ?
+      SQL
+
+    row = DB[:conn].execute(sql
 
 
 
