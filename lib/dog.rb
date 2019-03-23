@@ -52,7 +52,9 @@ class Dog
     FROM dogs
     WHERE dogs.id = ?
       SQL
-    self.new(attributes)
+
+    row = DB[:conn].execute(sql)[0]
+    self.new_from_db(row)
   end
 
   def self.find_or_create_by(name:, breed:)
