@@ -59,8 +59,7 @@ class Dog
       SQL
 
     dog = DB[:conn].execute(sql, name, breed).first
-    if !dog
-      Dog.new(name:, breed:)
+    dog ||= Dog.new(name:, breed:)
     end
 
   end
